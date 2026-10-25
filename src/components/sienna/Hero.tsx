@@ -39,10 +39,10 @@ function RecCam() {
             src={tapeFace.url}
             poster={IMG.mPastel}
             autoPlay
-            controls
             muted
             loop
             playsInline
+            preload="auto"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <span className="absolute left-3 top-3 flex items-center gap-2 font-mono text-lg uppercase text-cream">
