@@ -64,7 +64,7 @@ function RecCam() {
           <span className="animate-rec h-2.5 w-2.5 rounded-full bg-cherry" /> REC
         </span>
         <span className="absolute right-3 top-2">SP ▮▮▮▯</span>
-        <span className="absolute bottom-2 left-3 text-lime">{TAPE[i]?.cam}
+        <span className="absolute bottom-2 left-3 text-lime">{TAPE[i]?.cam}</span>
         <span className="absolute bottom-2 right-3">{clock}</span>
         {["left-6 top-10 border-l-2 border-t-2", "right-6 top-10 border-r-2 border-t-2", "left-6 bottom-10 border-b-2 border-l-2", "right-6 bottom-10 border-b-2 border-r-2"].map((c) => (
           <span key={c} className={`absolute h-5 w-5 border-cream/80 ${c}`} />
