@@ -9,7 +9,7 @@ export function TooMuch() {
     <section className="edge-zig relative z-10 bg-cola pt-20 text-cream md:pt-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-[1fr_1.15fr]">
         <div>
-          <p className="stamp text-pink">Tape 01 — faces</p>
+          <p className="stamp text-pink">Makeup at Sienna</p>
           <h2 className="font-display mt-4 text-[clamp(3.25rem,7vw,5.5rem)] font-black uppercase leading-[0.85]">
             <span className="block">Too</span>
             <span className="block italic text-pink">Much?</span>
