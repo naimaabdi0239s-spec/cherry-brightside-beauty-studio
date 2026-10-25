@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Sienna — Nails, Lashes, Brows & Makeup in Shoreditch" },
-      { name: "description", content: "Sienna is a London beauty studio for nails, lashes, brows and makeup. Make beauty fun again." },
+      { name: "description", content: "Nails, lashes, brows and makeup at Sienna, a beauty studio in Shoreditch, London." },
       { property: "og:title", content: "Sienna — Make Beauty Fun Again" },
       { property: "og:description", content: "Nails, lashes, brows and makeup at 14 Cherry Lane, Shoreditch." },
       { property: "og:type", content: "website" },

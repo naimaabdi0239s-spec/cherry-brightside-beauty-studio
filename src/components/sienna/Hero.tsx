@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import logo from "@/assets/sienna-logo.png";
 import tapeFace from "@/assets/tape-face.mp4.asset.json";
 import { BOOK_HREF, IMG } from "./data";
@@ -32,48 +31,28 @@ export function Nav() {
 }
 
 function RecCam() {
-  const [t, setT] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setT((s) => s + 1), 1000);
-    return () => clearInterval(id);
-  }, []);
-  const clock = `0:${String(Math.floor(t / 60) % 60).padStart(2, "0")}:${String(t % 60).padStart(2, "0")}`;
   return (
     <div className="relative w-full max-w-[400px] rotate-[2deg]">
-      {/* camcorder flip-screen housing */}
       <div className="rounded-[14px] bg-cola p-3 pb-9 shadow-soft">
         <div className="cam-screen relative aspect-[9/14] overflow-hidden rounded-md bg-cola">
           <video
             src={tapeFace.url}
             poster={IMG.mPastel}
             autoPlay
+            controls
             muted
             loop
             playsInline
-            className="cam-footage absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="cam-scanlines" />
-          <div className="cam-grain" />
-          <div className="cam-tracking" />
-          <div className="cam-vignette" />
-          <div className="pointer-events-none absolute inset-0 font-mono text-xl uppercase text-cream [text-shadow:1px_0_0_var(--cherry),-1px_0_0_oklch(80%_0.12_220)]">
-            <span className="absolute left-3 top-2 flex items-center gap-2">
-              <span className="animate-rec h-3 w-3 rounded-full bg-cherry" /> REC
-            </span>
-            <span className="absolute right-3 top-2">SP ▮▮▮▯</span>
-            <span className="absolute left-3 top-8 text-base opacity-80">AF · 16:9 · x2.4</span>
-            <span className="absolute bottom-8 left-3 text-base">OCT 25 2026</span>
-            <span className="absolute bottom-2 left-3 text-lime">CAM 1 · FACE</span>
-            <span className="absolute bottom-2 right-3">{clock}</span>
-            <span className="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 border border-cream/50" />
-          </div>
+          <span className="absolute left-3 top-3 flex items-center gap-2 font-mono text-lg uppercase text-cream">
+            <span className="h-2.5 w-2.5 rounded-full bg-cherry" />
+            Studio reel
+          </span>
         </div>
         <div className="mt-2 flex items-center justify-between px-1 font-mono text-sm text-pink/70">
-          <span>SIENNA·HANDYCAM</span>
-          <span className="flex gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-cherry" />
-            <span className="h-2 w-2 rounded-full bg-pink/40" />
-          </span>
+          <span>SIENNA STUDIO</span>
+          <span aria-hidden="true" className="h-2 w-2 rounded-full bg-pink/50" />
         </div>
       </div>
     </div>
@@ -87,7 +66,7 @@ function Polaroid({ src, label, className, r }: { src: string; label: string; cl
       style={{ ["--r" as string]: r }}
     >
       <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
-      <figcaption className="absolute bottom-0.5 left-2 font-mono text-sm text-cola">{label}</figcaption>
+      <figcaption className="absolute bottom-0.5 left-2 font-hand text-lg font-semibold leading-none text-cola">{label}</figcaption>
     </figure>
   );
 }
@@ -123,15 +102,15 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative hidden justify-center md:flex">
+        <div className="relative flex justify-center">
           <RecCam />
         </div>
       </div>
 
-      <Polaroid src={IMG.lashBlue} label="LASHES 00:14" className="left-[44%] top-[14%] h-36 w-28" r="-8deg" />
-      <Polaroid src={IMG.nTropical} label="NAILS 00:22" className="bottom-[8%] left-[46%] h-32 w-28" r="6deg" />
-      <Polaroid src={IMG.mSoft} label="FACE 00:31" className="right-[4%] top-[12%] h-32 w-24" r="9deg" />
-      <Polaroid src={IMG.lashWispy} label="LASHES 00:47" className="bottom-[10%] right-[6%] h-28 w-24" r="-5deg" />
+      <Polaroid src={IMG.lashBlue} label="blue set" className="left-[44%] top-[14%] h-36 w-28" r="-8deg" />
+      <Polaroid src={IMG.nTropical} label="papaya nails" className="bottom-[8%] left-[46%] h-32 w-28" r="6deg" />
+      <Polaroid src={IMG.mSoft} label="soft glam" className="right-[4%] top-[12%] h-32 w-24" r="9deg" />
+      <Polaroid src={IMG.lashWispy} label="wispy lashes" className="bottom-[10%] right-[6%] h-28 w-24" r="-5deg" />
     </section>
   );
 }

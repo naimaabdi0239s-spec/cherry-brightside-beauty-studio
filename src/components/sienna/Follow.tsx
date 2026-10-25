@@ -1,6 +1,13 @@
 import { IMG, SOCIALS } from "./data";
 
-const POSTS = [IMG.lashWispy, IMG.nChrome, IMG.mPastel, IMG.nButtons, IMG.lashFlower, IMG.mPearl];
+const POSTS = [
+  { src: IMG.lashWispy, alt: "Pink wispy lashes" },
+  { src: IMG.nChrome, alt: "Chrome flower nails" },
+  { src: IMG.mPastel, alt: "Pastel eye makeup with gems" },
+  { src: IMG.nButtons, alt: "Button nail art" },
+  { src: IMG.lashFlower, alt: "Lashes with flower detail" },
+  { src: IMG.mPearl, alt: "Blue makeup with pearl detail" },
+];
 
 export function Follow() {
   return (
@@ -8,9 +15,11 @@ export function Follow() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="stamp text-cherry-deep">Live from the studio</p>
+            <p className="stamp text-cherry-deep">Find us online</p>
             <h2 className="font-display mt-3 text-5xl md:text-6xl">Follow along.</h2>
-            <p className="mt-2 text-sm text-muted-foreground">New sets, recent work and updates from the studio.</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              More studio work on Instagram, TikTok and Pinterest.
+            </p>
           </div>
           <div className="flex flex-wrap gap-2">
             {SOCIALS.map((s) => (
@@ -21,13 +30,9 @@ export function Follow() {
           </div>
         </div>
         <div className="mt-8 grid grid-cols-3 gap-2 bg-cola p-3 pb-7 md:grid-cols-6 [background-image:repeating-linear-gradient(90deg,var(--cream)_0_10px,transparent_10px_22px)] [background-size:100%_6px] [background-repeat:repeat-x] [background-position:0_6px]">
-          {POSTS.map((src, i) => (
-            <a key={i} href="https://instagram.com/sienna.studio" target="_blank" rel="noreferrer" className="group relative mt-4 aspect-square overflow-hidden">
-              <span className="absolute -bottom-0 left-1 z-10 font-mono text-sm text-lime">{String(i + 12).padStart(2, "0")}A</span>
-              <img src={src} alt="Sienna on Instagram" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
-              <span className="absolute inset-0 flex items-center justify-center bg-cherry-deep/60 text-sm font-bold text-cream opacity-0 transition-opacity group-hover:opacity-100">
-                ♥ {120 + i * 37}
-              </span>
+          {POSTS.map((post) => (
+            <a key={post.src} href="https://instagram.com/sienna.studio" target="_blank" rel="noreferrer" aria-label={`View ${post.alt} on Instagram`} className="group mt-4 aspect-square overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cherry">
+              <img src={post.src} alt={post.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
             </a>
           ))}
         </div>

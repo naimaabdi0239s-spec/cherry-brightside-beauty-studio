@@ -8,7 +8,7 @@ const FILTERS: ("All" | Category)[] = ["All", "Nails", "Lashes", "Brows", "Makeu
 export function Gallery() {
   const [f, setF] = useState<(typeof FILTERS)[number]>("All");
   const { ref: viewRef, inView } = useInView<HTMLDivElement>(0.3);
-  const { ref: progRef, p } = useScrollProgress<HTMLElement>();
+  const { ref: progRef } = useScrollProgress<HTMLElement>();
   const items = GALLERY.filter((g) => f === "All" || g.cat === f);
   const cols = [0, 1, 2, 3].map((c) => items.filter((_, i) => i % 4 === c));
 
@@ -16,14 +16,7 @@ export function Gallery() {
     <section id="gallery" ref={progRef} className="relative overflow-hidden bg-blush">
       <div className="mx-auto max-w-6xl px-6 pb-16 pt-20 md:pt-24">
         <div ref={viewRef} className={`relative ${inView ? "is-in" : ""}`}>
-          <span
-            aria-hidden
-            className="font-display pointer-events-none absolute -top-6 left-1/4 whitespace-nowrap text-[clamp(6rem,16vw,14rem)] italic leading-none text-pink"
-            style={{ transform: `translateX(${(0.5 - p) * 40}%)` }}
-          >
-            the gallery the gallery
-          </span>
-          <p className="stamp relative text-cherry">Tape 02 — the work</p>
+          <p className="stamp relative text-cherry">The work</p>
           <h2 className="font-display relative mt-4 text-[clamp(3.5rem,9vw,7rem)] font-black uppercase leading-[0.85]">
             <span className="reveal-line"><span>A</span></span>
             <span className="reveal-line"><span>Closer</span></span>
@@ -65,7 +58,7 @@ export function Gallery() {
           ))}
         </div>
       </div>
-      <PlaidMarquee words={["Fresh sets weekly", "Cherry on top", "Your next look starts here", "Swipe-worthy, always"]} reverse />
+      <PlaidMarquee reverse />
     </section>
   );
 }
