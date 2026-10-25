@@ -34,7 +34,7 @@ export function LookRules() {
             ["180+", "nail colours"],
           ].map(([v, l]) => (
             <div key={l}>
-              <dt className="font-display text-4xl font-black italic">{v}</dt>
+              <dt className="font-display whitespace-nowrap pr-2 text-4xl font-black italic">{v}</dt>
               <dd className="font-mono text-base text-cola/70">{l}</dd>
             </div>
           ))}

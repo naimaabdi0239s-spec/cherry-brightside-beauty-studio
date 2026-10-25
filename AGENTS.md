@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Homepage sections live as separate components in src/components/sienna/ with shared content in data.ts — keeps the one-page site editable section by section.
