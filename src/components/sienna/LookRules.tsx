@@ -22,7 +22,7 @@ export function LookRules() {
       </div>
 
       <div className="mx-auto mt-14 max-w-2xl px-6 text-center">
-        <p className="eyebrow text-cherry">About the studio</p>
+        <p className="stamp text-cherry">About the studio</p>
         <p className="mt-5 text-xl font-medium leading-relaxed md:text-2xl">
           From your usual set to something completely different, Sienna is a space to try a new look,
           stick to your favourites and leave feeling like yourself — <em className="font-display">just with a little extra.</em>

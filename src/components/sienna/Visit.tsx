@@ -21,7 +21,7 @@ export function Visit() {
             <figcaption className="eyebrow mt-3">14 Cherry Lane · Shoreditch</figcaption>
           </figure>
           <div className="self-center">
-            <p className="eyebrow text-cherry">Meet the team</p>
+            <p className="stamp text-cherry">Meet the team</p>
             <ul className="mt-4">
               {TEAM.map((t) => (
                 <li key={t.n} className="flex items-baseline justify-between gap-4 border-t-2 border-cola py-4">

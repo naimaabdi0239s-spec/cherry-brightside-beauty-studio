@@ -9,7 +9,7 @@ export function LoveNotes() {
   return (
     <section className="overflow-hidden bg-pink py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="eyebrow text-cherry-deep">Love notes</p>
+        <p className="stamp text-cherry-deep">Fan mail</p>
         <h2 className="font-display mt-3 text-4xl md:text-6xl">
           Don't take <em className="text-cherry">our</em> word for it.
         </h2>

@@ -48,7 +48,7 @@ export function Menu() {
                         Book {m.name.toLowerCase()} →
                       </a>
                     </div>
-                    <img src={m.img} alt={`${m.name} by Sienna`} loading="lazy" className="aspect-[4/5] w-full rotate-2 border-4 border-cola object-cover" />
+                    <div className="relative"><span className="tape -top-2 left-6 rotate-[-6deg]" /><img src={m.img} alt={`${m.name} by Sienna`} loading="lazy" className="aspect-[4/5] w-full rotate-2 border-4 border-cola object-cover" /></div>
                   </div>
                 </div>
               </div>

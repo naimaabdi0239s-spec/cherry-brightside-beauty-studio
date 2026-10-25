@@ -6,10 +6,10 @@ const LOOKS = ["Soft glam", "Full glam", "Editorial", "Bridal", "Graphic liner",
 
 export function TooMuch() {
   return (
-    <section className="bg-cola py-20 text-cream md:py-24">
+    <section className="edge-zig relative z-10 bg-cola pt-20 text-cream md:pt-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-[1fr_1.15fr]">
         <div>
-          <p className="eyebrow text-pink">Makeup</p>
+          <p className="stamp text-pink">Tape 01 — faces</p>
           <h2 className="font-display mt-4 text-[clamp(3.25rem,7vw,5.5rem)] font-black uppercase leading-[0.85]">
             <span className="block">Too</span>
             <span className="block italic text-pink">Much?</span>
@@ -32,11 +32,11 @@ export function TooMuch() {
         </div>
 
         <div className="grid grid-cols-3 grid-rows-[repeat(4,minmax(0,1fr))] gap-3 md:h-[560px]">
-          <img src={IMG.mHibiscus} alt="Painted pink hibiscus makeup" loading="lazy" className="col-span-2 row-span-2 h-full w-full rounded-md object-cover" />
-          <img src={limePop} alt="Lime and pink eyeshadow with painted cherries" loading="lazy" width={768} height={1024} className="row-span-2 h-full w-full rounded-md object-cover" />
-          <img src={IMG.mPearl} alt="Icy blue shadow with pearls" loading="lazy" className="row-span-2 h-full w-full rounded-md object-cover" />
-          <img src={cherryLiner} alt="Cherry red graphic liner with gems" loading="lazy" width={768} height={1024} className="row-span-2 h-full w-full rounded-md object-cover" />
-          <img src={IMG.mPastel} alt="Pastel shadow with gems" loading="lazy" className="row-span-2 h-full w-full rounded-md object-cover" />
+          <img src={IMG.mHibiscus} alt="Painted pink hibiscus makeup" loading="lazy" className="col-span-2 row-span-2 h-full w-full border-2 border-cream/80 object-cover" />
+          <img src={limePop} alt="Lime and pink eyeshadow with painted cherries" loading="lazy" width={768} height={1024} className="row-span-2 h-full w-full border-2 border-cream/80 object-cover" />
+          <img src={IMG.mPearl} alt="Icy blue shadow with pearls" loading="lazy" className="row-span-2 h-full w-full border-2 border-cream/80 object-cover" />
+          <img src={cherryLiner} alt="Cherry red graphic liner with gems" loading="lazy" width={768} height={1024} className="row-span-2 h-full w-full border-2 border-cream/80 object-cover" />
+          <img src={IMG.mPastel} alt="Pastel shadow with gems" loading="lazy" className="row-span-2 h-full w-full border-2 border-cream/80 object-cover" />
         </div>
       </div>
     </section>

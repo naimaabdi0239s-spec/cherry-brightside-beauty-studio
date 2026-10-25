@@ -191,3 +191,99 @@
   }
   .reveal-line > span { opacity: 1; transform: none; }
 }
+
+/* ---------- Camcorder ---------- */
+.cam-footage {
+  filter: contrast(1.15) saturate(1.35) brightness(1.05) blur(0.35px);
+  animation: cam-shake 5s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes cam-shake {
+  0%, 100% { transform: scale(1.06) translate(0, 0) rotate(0deg); }
+  20% { transform: scale(1.07) translate(-0.6%, 0.4%) rotate(-0.3deg); }
+  45% { transform: scale(1.06) translate(0.5%, -0.3%) rotate(0.25deg); }
+  70% { transform: scale(1.08) translate(-0.3%, -0.5%) rotate(-0.15deg); }
+}
+.cam-scanlines, .cam-grain, .cam-tracking, .cam-vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+.cam-scanlines {
+  background: repeating-linear-gradient(0deg, oklch(0% 0 0 / 0.22) 0 1px, transparent 1px 3px);
+  mix-blend-mode: multiply;
+}
+.cam-grain {
+  inset: -50%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.55'/></svg>");
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  animation: grain-move 0.6s steps(4) infinite;
+}
+@keyframes grain-move {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-6%, 4%); }
+  50% { transform: translate(5%, -7%); }
+  75% { transform: translate(-3%, 6%); }
+  100% { transform: translate(0, 0); }
+}
+.cam-tracking {
+  inset: auto 0 auto 0;
+  height: 18%;
+  background: linear-gradient(180deg, transparent, oklch(100% 0 0 / 0.12) 40%, oklch(100% 0 0 / 0.28) 50%, oklch(100% 0 0 / 0.12) 60%, transparent);
+  filter: blur(1px);
+  animation: tracking 7s linear infinite;
+}
+@keyframes tracking {
+  0% { top: -20%; }
+  60%, 100% { top: 110%; }
+}
+.cam-vignette {
+  background: radial-gradient(ellipse at center, transparent 55%, oklch(10% 0.02 355 / 0.65) 100%);
+}
+
+/* ---------- Site-wide texture: risograph grain ---------- */
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+}
+
+/* masking tape strip */
+@utility tape {
+  position: absolute;
+  width: 84px;
+  height: 22px;
+  background: oklch(92% 0.06 95 / 0.8);
+  box-shadow: 0 1px 2px oklch(0% 0 0 / 0.15);
+  clip-path: polygon(3% 0, 97% 4%, 100% 50%, 96% 100%, 2% 96%, 0 50%);
+  z-index: 2;
+}
+
+/* torn zig-zag bottom edge */
+@utility edge-zig {
+  --z: 14px;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--z)) 100%;
+  padding-bottom: calc(var(--z) + 4rem);
+}
+
+/* stamp label */
+@utility stamp {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid currentColor;
+  padding: 0 0.5rem;
+  transform: rotate(-2deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cam-footage, .cam-grain, .cam-tracking { animation: none; }
+}
