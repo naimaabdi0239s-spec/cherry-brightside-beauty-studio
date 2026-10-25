@@ -89,12 +89,12 @@ function Polaroid({ src, label, className, r }: { src: string; label: string; cl
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="grid min-h-[100svh] md:grid-cols-2">
+      <div className="absolute inset-0 grid md:grid-cols-2">
         <div className="bg-pink" />
         <div className="hidden bg-cherry md:block" />
       </div>
 
-      <div className="absolute inset-0 mx-auto grid max-w-6xl items-center gap-10 px-6 pb-16 pt-24 md:grid-cols-2">
+      <div className="relative mx-auto grid min-h-[100svh] max-w-6xl items-center gap-10 px-6 pb-16 pt-24 md:grid-cols-2">
         <div className="relative z-10">
           <p className="eyebrow text-cola/80">Nails · Lashes · Brows · Makeup — London</p>
           <h1 className="mt-6">
