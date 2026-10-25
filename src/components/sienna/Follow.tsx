@@ -22,7 +22,7 @@ export function Follow() {
         </div>
         <div className="mt-8 grid grid-cols-3 gap-3 md:grid-cols-6">
           {POSTS.map((src, i) => (
-            <a key={i} href={SOCIALS[0].href} target="_blank" rel="noreferrer" className="group relative aspect-square overflow-hidden rounded-lg">
+            <a key={i} href="https://instagram.com/sienna.studio" target="_blank" rel="noreferrer" className="group relative aspect-square overflow-hidden rounded-lg">
               <img src={src} alt="Sienna on Instagram" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
               <span className="absolute inset-0 flex items-center justify-center bg-cherry-deep/60 text-sm font-bold text-cream opacity-0 transition-opacity group-hover:opacity-100">
                 ♥ {120 + i * 37}
