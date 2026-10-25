@@ -23,7 +23,7 @@ export function Gallery() {
           >
             the gallery the gallery
           </span>
-          <p className="eyebrow relative inline-block border border-cherry px-2 py-1 text-cherry">The work</p>
+          <p className="stamp relative text-cherry">Tape 02 — the work</p>
           <h2 className="font-display relative mt-4 text-[clamp(3.5rem,9vw,7rem)] font-black uppercase leading-[0.85]">
             <span className="reveal-line"><span>A</span></span>
             <span className="reveal-line"><span>Closer</span></span>
@@ -43,20 +43,21 @@ export function Gallery() {
           ))}
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4">
           {cols.map((col, ci) => (
-            <div key={ci} className="flex flex-col gap-3">
+            <div key={ci} className="flex flex-col gap-5">
               {col.map((g, i) => (
-                <figure key={g.title} className="group relative overflow-hidden rounded-xl">
+                <figure key={g.title} className={`group relative bg-cream p-2 pb-9 shadow-hard transition-transform hover:z-10 hover:rotate-0 hover:scale-[1.03] ${(ci + i) % 2 ? "rotate-[1.2deg]" : "-rotate-[1.4deg]"}`}>
+                  {(ci + i) % 3 === 0 && <span className="tape -top-2 left-1/2 -translate-x-1/2 rotate-[-4deg]" />}
                   <img
                     src={g.src}
                     alt={`${g.title} — ${g.cat}`}
                     loading="lazy"
-                    className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${(ci + i) % 3 === 0 ? "aspect-[3/4]" : (ci + i) % 3 === 1 ? "aspect-square" : "aspect-[4/5]"}`}
+                    className={`w-full object-cover ${(ci + i) % 3 === 0 ? "aspect-[3/4]" : (ci + i) % 3 === 1 ? "aspect-square" : "aspect-[4/5]"}`}
                   />
-                  <figcaption className="absolute inset-x-2 bottom-2 flex translate-y-2 items-center justify-between rounded-lg bg-cream/90 px-3 py-1.5 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                    <span className="font-display italic">{g.title}</span>
-                    <span className="eyebrow text-cherry">{g.cat}</span>
+                  <figcaption className="absolute inset-x-2 bottom-1.5 flex items-baseline justify-between">
+                    <span className="font-display text-sm font-bold italic">{g.title}</span>
+                    <span className="font-mono text-base text-cherry">{g.cat.toUpperCase()} {String(ci * 3 + i + 1).padStart(2, "0")}</span>
                   </figcaption>
                 </figure>
               ))}

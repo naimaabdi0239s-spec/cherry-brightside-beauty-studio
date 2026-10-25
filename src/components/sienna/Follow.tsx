@@ -8,7 +8,7 @@ export function Follow() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="eyebrow text-cherry-deep">Instagram</p>
+            <p className="stamp text-cherry-deep">Live from the studio</p>
             <h2 className="font-display mt-3 text-5xl md:text-6xl">Follow along.</h2>
             <p className="mt-2 text-sm text-muted-foreground">New sets, recent work and updates from the studio.</p>
           </div>
@@ -20,9 +20,10 @@ export function Follow() {
             ))}
           </div>
         </div>
-        <div className="mt-8 grid grid-cols-3 gap-3 md:grid-cols-6">
+        <div className="mt-8 grid grid-cols-3 gap-2 bg-cola p-3 pb-7 md:grid-cols-6 [background-image:repeating-linear-gradient(90deg,var(--cream)_0_10px,transparent_10px_22px)] [background-size:100%_6px] [background-repeat:repeat-x] [background-position:0_6px]">
           {POSTS.map((src, i) => (
-            <a key={i} href="https://instagram.com/sienna.studio" target="_blank" rel="noreferrer" className="group relative aspect-square overflow-hidden rounded-lg">
+            <a key={i} href="https://instagram.com/sienna.studio" target="_blank" rel="noreferrer" className="group relative mt-4 aspect-square overflow-hidden">
+              <span className="absolute -bottom-0 left-1 z-10 font-mono text-sm text-lime">{String(i + 12).padStart(2, "0")}A</span>
               <img src={src} alt="Sienna on Instagram" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
               <span className="absolute inset-0 flex items-center justify-center bg-cherry-deep/60 text-sm font-bold text-cream opacity-0 transition-opacity group-hover:opacity-100">
                 ♥ {120 + i * 37}
