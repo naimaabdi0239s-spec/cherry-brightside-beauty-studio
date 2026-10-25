@@ -39,6 +39,7 @@ function RecCam() {
             src={tapeFace.url}
             poster={IMG.mPastel}
             autoPlay
+            controls
             muted
             loop
             playsInline
@@ -101,7 +102,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative hidden justify-center md:flex">
+        <div className="relative flex justify-center">
           <RecCam />
         </div>
       </div>
