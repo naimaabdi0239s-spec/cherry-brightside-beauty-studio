@@ -22,7 +22,7 @@ export function Nav() {
         <ul className="hidden items-center gap-8 md:flex">
           {NAV.map((n) => (
             <li key={n.href}>
-              <a href={n.href} className="eyebrow text-cola transition-colors hover:text-cherry md:[&:nth-child(n)]:text-cola">
+              <a href={n.href} className="eyebrow text-cola transition-colors hover:text-cream">
                 {n.label}
               </a>
             </li>
