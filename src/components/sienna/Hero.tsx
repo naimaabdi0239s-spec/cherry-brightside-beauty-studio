@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import logo from "@/assets/sienna-logo.png";
+import tapeFace from "@/assets/tape-face.mp4.asset.json";
 import { BOOK_HREF, IMG } from "./data";
 
 const NAV = [
@@ -7,12 +8,6 @@ const NAV = [
   { label: "Gallery", href: "#gallery" },
   { label: "Studio", href: "#studio" },
   { label: "Visit", href: "#visit" },
-];
-
-const TAPE = [
-  { src: IMG.mPastel, cam: "CAM 1 · FACE" },
-  { src: IMG.nCharacter, cam: "CAM 2 · HANDS" },
-  { src: IMG.lashSpikes, cam: "CAM 3 · EYES" },
 ];
 
 export function Nav() {
@@ -37,38 +32,49 @@ export function Nav() {
 }
 
 function RecCam() {
-  const [i, setI] = useState(0);
   const [t, setT] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setT((s) => s + 1), 1000);
     return () => clearInterval(id);
   }, []);
-  useEffect(() => {
-    if (t > 0 && t % 4 === 0) setI((x) => (x + 1) % TAPE.length);
-  }, [t]);
-  const clock = `00:00:${String(t % 60).padStart(2, "0")}`;
+  const clock = `0:${String(Math.floor(t / 60) % 60).padStart(2, "0")}:${String(t % 60).padStart(2, "0")}`;
   return (
-    <div className="relative aspect-[4/5] w-full max-w-[440px] rotate-[2deg] border-[6px] border-cola bg-cola shadow-soft">
-      {TAPE.map((f, k) => (
-        <img
-          key={f.cam}
-          src={f.src}
-          alt="Recent work at Sienna"
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${k === i ? "opacity-100" : "opacity-0"}`}
-          width={880}
-          height={1100}
-        />
-      ))}
-      <div className="pointer-events-none absolute inset-0 font-mono text-lg text-cream">
-        <span className="absolute left-3 top-2 flex items-center gap-2">
-          <span className="animate-rec h-2.5 w-2.5 rounded-full bg-cherry" /> REC
-        </span>
-        <span className="absolute right-3 top-2">SP ▮▮▮▯</span>
-        <span className="absolute bottom-2 left-3 text-lime">{TAPE[i]?.cam}</span>
-        <span className="absolute bottom-2 right-3">{clock}</span>
-        {["left-6 top-10 border-l-2 border-t-2", "right-6 top-10 border-r-2 border-t-2", "left-6 bottom-10 border-b-2 border-l-2", "right-6 bottom-10 border-b-2 border-r-2"].map((c) => (
-          <span key={c} className={`absolute h-5 w-5 border-cream/80 ${c}`} />
-        ))}
+    <div className="relative w-full max-w-[400px] rotate-[2deg]">
+      {/* camcorder flip-screen housing */}
+      <div className="rounded-[14px] bg-cola p-3 pb-9 shadow-soft">
+        <div className="cam-screen relative aspect-[9/14] overflow-hidden rounded-md bg-cola">
+          <video
+            src={tapeFace.url}
+            poster={IMG.mPastel}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="cam-footage absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="cam-scanlines" />
+          <div className="cam-grain" />
+          <div className="cam-tracking" />
+          <div className="cam-vignette" />
+          <div className="pointer-events-none absolute inset-0 font-mono text-xl uppercase text-cream [text-shadow:1px_0_0_var(--cherry),-1px_0_0_oklch(80%_0.12_220)]">
+            <span className="absolute left-3 top-2 flex items-center gap-2">
+              <span className="animate-rec h-3 w-3 rounded-full bg-cherry" /> REC
+            </span>
+            <span className="absolute right-3 top-2">SP ▮▮▮▯</span>
+            <span className="absolute left-3 top-8 text-base opacity-80">AF · 16:9 · x2.4</span>
+            <span className="absolute bottom-8 left-3 text-base">OCT 25 2026</span>
+            <span className="absolute bottom-2 left-3 text-lime">CAM 1 · FACE</span>
+            <span className="absolute bottom-2 right-3">{clock}</span>
+            <span className="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 border border-cream/50" />
+          </div>
+        </div>
+        <div className="mt-2 flex items-center justify-between px-1 font-mono text-sm text-pink/70">
+          <span>SIENNA·HANDYCAM</span>
+          <span className="flex gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-cherry" />
+            <span className="h-2 w-2 rounded-full bg-pink/40" />
+          </span>
+        </div>
       </div>
     </div>
   );
