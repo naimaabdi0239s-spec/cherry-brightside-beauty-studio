@@ -65,7 +65,7 @@ function Polaroid({ src, label, className, r }: { src: string; label: string; cl
       style={{ ["--r" as string]: r }}
     >
       <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
-      <figcaption className="absolute bottom-0.5 left-2 font-mono text-sm text-cola">{label}</figcaption>
+      <figcaption className="absolute bottom-0.5 left-2 font-hand text-lg font-semibold leading-none text-cola">{label}</figcaption>
     </figure>
   );
 }
