@@ -1,24 +1,45 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero, Nav } from "@/components/sienna/Hero";
+import { PlaidMarquee } from "@/components/sienna/PlaidMarquee";
+import { Menu } from "@/components/sienna/Menu";
+import { TooMuch } from "@/components/sienna/TooMuch";
+import { Gallery } from "@/components/sienna/Gallery";
+import { LookRules } from "@/components/sienna/LookRules";
+import { Visit } from "@/components/sienna/Visit";
+import { LoveNotes } from "@/components/sienna/LoveNotes";
+import { Follow } from "@/components/sienna/Follow";
+import { Faq } from "@/components/sienna/Faq";
+import { Footer } from "@/components/sienna/Footer";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Sienna — Nails, Lashes, Brows & Makeup in Shoreditch" },
+      { name: "description", content: "Sienna is a London beauty studio for nails, lashes, brows and makeup. Make beauty fun again." },
+      { property: "og:title", content: "Sienna — Make Beauty Fun Again" },
+      { property: "og:description", content: "Nails, lashes, brows and makeup at 14 Cherry Lane, Shoreditch." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main>
+      <Nav />
+      <Hero />
+      <PlaidMarquee />
+      <Menu />
+      <TooMuch />
+      <Gallery />
+      <LookRules />
+      <Visit />
+      <LoveNotes />
+      <Follow />
+      <Faq />
+      <Footer />
+    </main>
   );
 }
